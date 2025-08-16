@@ -4,10 +4,10 @@ use minigrep::Config;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    // println!("this iis the vector: {:?}", args);
+    // eprintln!("this iis the vector: {:?}", args);
 
     let config = Config::new(&args).unwrap_or_else(|err|{
-        println!("Problem parsing arguments: {}", err);
+        eprintln!("Problem parsing arguments: {}", err);
         process::exit(1);
     });
     
@@ -15,7 +15,7 @@ fn main() {
     // println!("In file {}", config.filename);
 
     if let Err(e) = minigrep::run(config) {
-        println!("Applicstion error: {}", e);
+        eprintln!("Applicstion error: {}", e);
 
         process::exit(1)
     }
