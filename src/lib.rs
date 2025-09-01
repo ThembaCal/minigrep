@@ -60,7 +60,7 @@ results
 
 pub fn  search_case_insesitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str>  {
     let results: Vec<&'a str> = contents.lines()
-    .filter(|line| line.to_lowercase().contains(query))
+    .filter(|line| line.to_lowercase().contains(&query.to_lowercase()))
     .collect();
     
     results
